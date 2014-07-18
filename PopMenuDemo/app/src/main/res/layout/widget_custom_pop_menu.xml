@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <!-- bottom actions-->
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#6aaa"
+        android:layout_gravity="bottom|center_horizontal"
+        android:numColumns="3"
+        android:gravity="center_horizontal"
+        android:stretchMode="columnWidth"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/actions_grid"/>
+
+    <!-- top menu -->
+
+    <ListView
+        android:id="@+id/menu_items"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/border_background"
+        android:layout_marginBottom="60dp"/>
+  </FrameLayout>
+</LinearLayout>

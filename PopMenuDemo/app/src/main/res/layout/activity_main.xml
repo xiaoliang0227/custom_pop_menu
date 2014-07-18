@@ -1,0 +1,20 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33FFFF00">
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:padding="15dp"
+      android:text="Custom Pop Menu"/>
+
+  <com.zyl.popmenu.CustomPopMenu
+      android:layout_width="match_parent"
+      android:layout_alignParentBottom="true"
+      android:layout_height="wrap_content">
+  </com.zyl.popmenu.CustomPopMenu>
+</RelativeLayout>
+
