@@ -1,11 +1,13 @@
 package com.zyl.popmenu;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -41,6 +43,8 @@ public class CustomPopMenu extends LinearLayout {
 
   private GridActionsAdapter adapter;
 
+  private boolean dismiss_click_out_of_side = false;
+
   public CustomPopMenu(Context context) {
     super(context);
   }
@@ -55,6 +59,26 @@ public class CustomPopMenu extends LinearLayout {
     initLayout();
     initField();
     initActionsGrid();
+    addListener();
+  }
+
+  private void addListener() {
+    ((Activity) context).getWindow().getDecorView().setOnTouchListener(new OnTouchListener() {
+      @Override
+      public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (dismiss_click_out_of_side && menuItems.getVisibility() == View.VISIBLE) {
+           hideMenuItems(-1);
+        }
+        return false;
+      }
+    });
+    view.setOnTouchListener(new OnTouchListener() {
+
+      @Override
+      public boolean onTouch(View view, MotionEvent motionEvent) {
+        return false;
+      }
+    });
   }
 
   private void initActionsGrid() {
@@ -150,4 +174,11 @@ public class CustomPopMenu extends LinearLayout {
   public CustomPopMenu(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
   }
+
+
+  public void setDismissClickOutofSide(boolean flag) {
+    dismiss_click_out_of_side = flag;
+  }
+
+
 }

@@ -16,5 +16,6 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    ((CustomPopMenu) findViewById(R.id.custom_pop_menu)).setDismissClickOutofSide(true);
   }
 }
